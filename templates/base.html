@@ -26,6 +26,7 @@
             <a class="nav-link" href="{% url 'home.about' %}">About</a>
             <a class="nav-link" href="{% url 'movies.index' %}">Movies</a>
             <a class="nav-link" href="{% url 'cart.index' %}">Cart</a>
+            <a class="nav-link" href="{% url 'cart.feedback_index' %}">Feedback</a>
             {% if user.is_authenticated %}
               <a class="nav-link" href="{% url 'accounts.orders' %}">Orders</a>
               <a class="nav-link" href="{% url 'accounts.logout' %}">Logout ({{ user.username }})</a>

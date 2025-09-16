@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="p-3">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col mx-auto mb-3">
+        <h2>Checkout Feedback</h2>
+        <hr />
+        <ul class="list-group">
+          {% for fb in template_data.feedbacks %}
+            <li class="list-group-item">
+              <div class="d-flex justify-content-between">
+                <b>{{ fb.name|default:'Anonymous' }}</b>
+                <span class="text-muted">{{ fb.date }}</span>
+              </div>
+              <div class="mt-2">{{ fb.comment }}</div>
+              {% if fb.order %}
+                <div class="mt-2 text-muted">Order #{{ fb.order.id }}</div>
+              {% endif %}
+            </li>
+          {% empty %}
+            <li class="list-group-item">No feedback yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
